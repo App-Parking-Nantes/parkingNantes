@@ -1,2 +1,17 @@
 <p>Page Home</p>
-<p>{{parkings}}</p>
+<div class="errors" ng-repeat="parking in parkings" >
+    <div>
+        <p>{{parking.Grp_identifiant}}-
+        {{parking.Grp_nom}}-
+        {{parking.Grp_statut}}-
+        {{parking.Grp_pri_aut}}-
+        {{parking.Grp_disponible}}-
+        {{parking.Grp_complet}}-
+        {{parking.Grp_exploitation}}-
+        {{parking.Grp_horodatage}}-
+        {{parking.IdObj}}</p>     
+        
+
+    </div>   
+</div>
+ <div>{{localisation}}</div>

@@ -52,21 +52,36 @@
                 <script src="js/controller/ListController.js"></script>
                 <script>
                     function initialize() {
-          var myLatlng = new google.maps.LatLng(44.3381,1.2098);                
-        var mapOptions = {
+
+
+
+                        var mapOptions = {
                             zoom: 15,
-                            center: new google.maps.LatLng(44.3381,1.2098)
+                            center: new google.maps.LatLng(44.3381, 1.2098)
 
                         };
 
+                        // Tableau des parkings
+
+                        var markers = [
+                            ['London Eye, London', 44.3382, 1.2098],
+                            ['Palace of Westminster, London', 44.3382, 1.2097]
+                        ];
+
+// Loop through our array of markers & place each one on the map  
+                        for (i = 0; i < markers.length; i++) {
+                            var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                            bounds.extend(position);
+                            marker = new google.maps.Marker({
+                                position: position,
+                                map: map,
+                                title: markers[i][0]
+                            });
+                        }
+
                         var map = new google.maps.Map(document.getElementById('map-canvas'),
-                                mapOptions);
-                                
-                        var marker = new google.maps.Marker({
-                            position: myLatlng,
-                            map: map,
-                            title: 'Hello World!'
-                        });
+                                mapOptions), marker, i;
+
                     }
 
                     function loadScript() {

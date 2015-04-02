@@ -41,6 +41,10 @@ a {
     padding: 0 25px;
     float: left;
 }
+.header__logo:hover{
+   color :#fff ;
+   text-decoration : none ;
+}
 .menu {
     float: left;
   

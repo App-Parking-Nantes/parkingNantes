@@ -95,9 +95,28 @@ app.controller('ListController', ['$scope', '$http', '$location', '$rootScope', 
         
         $scope.singleInformation = function(id){
             $scope.infos = [];
-          angular.forEach($scope.horaires, function(horaire) {
+            $scope.infos.parking;
+            $scope.infos.localisation;
+            $scope.infos.horaire = [];
+            
+            angular.forEach($scope.horaires, function(horaire) {
               if(horaire._IDOBJ == id){
-                  $scope.infos.push(horaire)  ;
+                  
+                  $scope.infos.horaire.push(horaire)  ;
+              }
+            });
+            
+            angular.forEach($scope.parkings, function(parking) {
+              if(parking.IdObj == id){
+                 
+                  $scope.infos.parking=parking  ;
+              }
+            });
+            
+            angular.forEach($scope.localisations, function(localisation) {
+              if(localisation._IDOBJ == id){
+                 
+                  $scope.infos.localisation=localisation  ;
               }
             });
    

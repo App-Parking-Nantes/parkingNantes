@@ -25,6 +25,10 @@ app.config(['$routeProvider','$httpProvider',function ($routeProvider,$httpProvi
 
     $('#site-cache').click(function(e) {
         $('body').removeClass('with--sidebar');
-    })
+    });
+    
+    $('.menu').click(function(e) {
+        $('body').removeClass('with--sidebar');
+    });
 
 })(jQuery);

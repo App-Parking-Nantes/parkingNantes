@@ -1,4 +1,4 @@
-<h1>Page Home</h1>
+<!--<h1>Page Home</h1>
 
 <h2>Parkings Maps</h2>
 <div ng-repeat="parking in parkings" >    
@@ -31,7 +31,7 @@
 <div ng-repeat="localisation in localisations" >    
         <p>{{localisation.geo}}-
         {{localisation._l}}-
-        <!--{{localisation.LIBTHEME}}-
+        {{localisation.LIBTHEME}}-
         {{localisation.CODE_POSTAL}}-
         {{localisation.WEB}}-
         {{localisation.STATUT}}-
@@ -40,12 +40,31 @@
         {{localisation.COMMUNE}}- 
         {{localisation.LIBCATEGORIE}}-
         {{localisation.ADRESSE}}- 
-        {{localisation.LIBTYPE}}- -->
+        {{localisation.LIBTYPE}}- 
         {{localisation._IDOBJ}}-
-        <!--{{localisation.TYPE}}- 
-        {{localisation.CATEGORIE}}-->
+        {{localisation.TYPE}}- 
+        {{localisation.CATEGORIE}}
         </p>
 </div>
 
 
- <div>{{}}</div>
+ <div>{{}}</div>-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Asynchronous Loading</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+   
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+  </body>
+</html>

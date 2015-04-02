@@ -14,3 +14,17 @@ app.config(['$routeProvider','$httpProvider',function ($routeProvider,$httpProvi
   .otherwise({redirectTo : '/maps'});
 }]);
 
+
+
+(function($) {
+
+    $('#header__icon').click(function(e) {
+        e.preventDefault();
+        $('body').toggleClass('with--sidebar');
+    });
+
+    $('#site-cache').click(function(e) {
+        $('body').removeClass('with--sidebar');
+    })
+
+})(jQuery);

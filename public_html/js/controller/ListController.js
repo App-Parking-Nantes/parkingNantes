@@ -4,6 +4,7 @@
 app.controller('ListController', ['$scope', '$http', '$location', '$rootScope', '$q', function ($scope, $http, $location, $rootScope, $q) {
 
         $scope.parkings = [];
+        $scope.infos =" " ;
 
 
         /**
@@ -45,6 +46,11 @@ app.controller('ListController', ['$scope', '$http', '$location', '$rootScope', 
                 alert(msg);
             });
         };
+        
+        $scope.singleInformation = function(id){
+            $scope.infos = id;
+        };
         $scope.dataParkings();
+ 
    
     }]);

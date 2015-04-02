@@ -95,5 +95,6 @@ app.controller('MapsController', ['$scope', '$http', '$location', '$rootScope', 
         $scope.dataParkings();
         $scope.dataHoraire();
         $scope.dataLocalisation();
+        initialize();
 
     }]);

@@ -52,7 +52,7 @@
                 <script src="js/controller/ListController.js"></script>
                 <script>
                     function initialize() {
-          var myLatlng = new google.maps.LatLng(47.214, -1.555);                
+          var myLatlng = new google.maps.LatLng(44.3381,1.2098);                
         var mapOptions = {
                             zoom: 15,
                             center: new google.maps.LatLng(44.3381,1.2098)
@@ -63,7 +63,7 @@
                                 mapOptions);
                                 
                         var marker = new google.maps.Marker({
-                            position: LatLng(44.3381,1.2098),
+                            position: myLatlng,
                             map: map,
                             title: 'Hello World!'
                         });

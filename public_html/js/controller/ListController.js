@@ -4,7 +4,9 @@
 app.controller('ListController', ['$scope', '$http', '$location', '$rootScope', '$q', function ($scope, $http, $location, $rootScope, $q) {
 
         $scope.parkings = [];
-        $scope.infos =" " ;
+        $scope.infos = [] ;
+        $scope.horaires = [];
+        $scope.localisations = [];
 
 
         /**
@@ -47,10 +49,63 @@ app.controller('ListController', ['$scope', '$http', '$location', '$rootScope', 
             });
         };
         
-        $scope.singleInformation = function(id){
-            $scope.infos = id;
+        
+        $scope.dataHoraire = function () {
+            //On récupère les données
+            var deferred = $q.defer();
+
+            $http.get("http://baptistedixneuf.fr/parking/horaireParkings.php").
+                    success(function (data, status) {
+                        deferred.resolve(data);
+                    }).
+                    error(function (data, status) {
+                        deferred.reject('Erreur requete ajax: Connexion serveur impossible');
+                    });
+
+            data = deferred.promise;
+
+            $scope.horaires = data.then(function (data) {
+                $scope.horaires = data.data;
+            }, function (msg) {
+                alert(msg);
+            });
         };
+        
+        
+        $scope.dataLocalisation = function () {
+            //On récupère les données
+            var deferred = $q.defer();
+
+            $http.get("http://baptistedixneuf.fr/parking/localisation.php").
+                    success(function (data, status) {
+                        deferred.resolve(data);
+                    }).
+                    error(function (data, status) {
+                        deferred.reject('Erreur requete ajax: Connexion serveur impossible');
+                    });
+
+            data = deferred.promise;
+
+            $scope.localisations = data.then(function (data) {
+                $scope.localisations = data.data;
+            }, function (msg) {
+                alert(msg);
+            });
+        };
+        
+        $scope.singleInformation = function(id){
+            $scope.infos = [];
+          angular.forEach($scope.horaires, function(horaire) {
+              if(horaire._IDOBJ == id){
+                  $scope.infos.push(horaire)  ;
+              }
+            });
+   
+        };
+        
         $scope.dataParkings();
+        $scope.dataHoraire();
+        $scope.dataLocalisation();
  
    
     }]);

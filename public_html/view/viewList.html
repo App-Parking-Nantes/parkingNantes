@@ -1,6 +1,40 @@
-<h1>Page Home</h1>
-
 <h2>Parkings List</h2>
+<div class="row">
+   <div class="col-xs-6">
+       <form class="form-inline">
+            <div class="form-group">
+                <label>Filtrer par Nom </label>
+                <input type="text" ng-model="searchValue" placeholder="Recherche" class="form-control"> 
+            </div>
+       </form>
+       <hr>
+        <div id="searchResults" ng-controller="ListController">
+            <ul>
+              <li ng-repeat="parking in parkings | filter: searchValue">
+                    <p>{{parking.Grp_identifiant}}-
+                        {{parking.Grp_nom}}-
+                        {{parking.Grp_statut}}-
+                        {{parking.Grp_pri_aut}}-
+                        {{parking.Grp_disponible}}-
+                        {{parking.Grp_complet}}-
+                        {{parking.Grp_exploitation}}-
+                        {{parking.Grp_horodatage}}-
+                        {{parking.IdObj}}
+            </p>
+              </li>
+            </ul>
+        </div>
+   </div>
+    
+    <div class="col-xs-6">
+                <h4> Informations </h4>
+        <hr>
+        
+        
+        
+    </div>
+</div>
+<!--
 <div ng-repeat="parking in parkings" >    
         <p>{{parking.Grp_identifiant}}-
         {{parking.Grp_nom}}-
@@ -13,3 +47,4 @@
         {{parking.IdObj}}
         </p>
 </div>
+-->

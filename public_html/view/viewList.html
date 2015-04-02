@@ -12,7 +12,8 @@
             <div id="searchResults">
                 <ul>
                   <li ng-repeat="parking in parkings | filter: searchValue">
-                      <a ng-click="singleInformation({{parking.IdObj}})">
+                      <div style="display: none ;" ng-init="param= parking.IdObj ;"></div>
+                      <a ng-click="singleInformation(param)">
                             {{parking.Grp_nom}}</a>
                   </li>
                 </ul>
@@ -23,8 +24,11 @@
                     <h4> Informations </h4>
 
             <hr>
+            <h4> Horaire </h4>
+                <ul ng-repeat="info in infos">
+                    <li>{{info.JOUR}} -  {{info.HEURE_DEBUT}} | {{info.HEURE_FIN}} </li>         
+                </ul>
 
-            <p>                {{infos}} </p>
 
         </div>
     </div>

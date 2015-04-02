@@ -53,7 +53,9 @@ a {
     padding: 0 10px;
 }
 .menu a:hover {
-    color: #c6ff00;
+    color: #303f9f;
+    background-color: #fff ;
+    text-decoration: none ;
 }
 
 .site-pusher, .site-container {

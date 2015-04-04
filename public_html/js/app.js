@@ -1,4 +1,4 @@
-//Déclarayion de notre application AngularJS avec les modules nécessaires
+//Déclaration de notre application AngularJS avec les modules nécessaires
 var app = angular.module('ParkingNantes', ['ngRoute']);
 
 /* Configuration des routes*/
@@ -15,7 +15,7 @@ app.config(['$routeProvider','$httpProvider',function ($routeProvider,$httpProvi
 }]);
 
 
-
+//JS pour le menu
 (function($) {
 
     $('#header__icon').click(function(e) {

@@ -53,15 +53,33 @@
 <div class="row">
     <div ng-controller="MapsController" >
         <div class="col-md-8">
-            <map center="47.238222,-1.5609655" zoom="12">
-                <div ng-repeat="localisation in localisations" >            
-                    <marker id="foo" position="{{localisation._l}}" on-click="showInfoWindow(event, 'bar')">
-                    </marker>        
-                </div>
-            </map>
+            
+            <!--http://plnkr.co/edit/eEE9tX4PlDstCeiQI6x2?p=preview -->
+            <map zoom="12" center="[47.238222,-1.5609655]">
+            <marker ng-repeat="p in localisations" position="{{p._l}}" on-click="showInfoWindow(event, p)"></marker>
+
+             </map>
+            
+            
         </div>
         <div class="col-md-4">
             <h2> Infos </h2>
+            <hr>
+            <h4> Places Disponible </h4>
+
+            {{infos.parking.Grp_disponible}}
+
+
+            <h4> Horaire </h4>
+
+            <ul ng-repeat="horaire in infos.horaire">
+                <li>{{horaire.JOUR}} -  {{horaire.HEURE_DEBUT}} | {{horaire.HEURE_FIN}} </li>
+
+            </ul>
+
+            <h4> Localisation </h4>
+
+            {{infos.localisation._l}}
         </div>
     </div>
 </div>

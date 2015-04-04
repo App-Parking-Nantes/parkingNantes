@@ -90,10 +90,62 @@ app.controller('MapsController', ['$scope', '$http', '$location', '$rootScope', 
                 alert(msg);
             });
         };
+        
+        
+        $scope.singleInformation = function(id){
+            $scope.infos = [];
+            $scope.infos.parking;
+            $scope.infos.localisation;
+            $scope.infos.horaire = [];
+            
+            console.log(id);
+            
+            angular.forEach($scope.horaires, function(horaire) {
+              if(horaire._IDOBJ == id){
+                  
+                  $scope.infos.horaire.push(horaire)  ;
+              }
+            });
+            
+            angular.forEach($scope.parkings, function(parking) {
+              if(parking.IdObj == id){
+                 
+                  $scope.infos.parking=parking  ;
+              }
+            });
+            
+            angular.forEach($scope.localisations, function(localisation) {
+              if(localisation._IDOBJ == id){
+                 
+                  $scope.infos.localisation=localisation  ;
+              }
+            });
+   
+        };
+        
+        
 
 
         $scope.dataParkings();
         $scope.dataHoraire();
         $scope.dataLocalisation();
+        
+        
+     
+      
+        $scope.$on('mapInitialized', function (event, map) {
+            $scope.objMapa = map;
+         });
+
+         $scope.showInfoWindow = function (event, p) {
+            var infowindow = new google.maps.InfoWindow();
+            var center = new google.maps.LatLng(p._l[0],p._l[1]);
+
+            infowindow.setContent(
+                '<h3>' + p._l + '</h3>');
+
+            infowindow.setPosition(center);
+            infowindow.open($scope.objMapa);
+         };
 
     }]);

@@ -140,6 +140,7 @@ app.controller('MapsController', ['$scope', '$http', '$location', '$rootScope', 
          $scope.showInfoWindow = function (event, p) {
             var infowindow = new google.maps.InfoWindow();
             var center = new google.maps.LatLng(p._l[0],p._l[1]);
+            $scope.singleInformation(p._IdObj);
 
             infowindow.setContent(
                 '<h3>' + p._l + '</h3>');

@@ -50,6 +50,20 @@
 
  <div>{{}}</div>-->
 
-<div id="map-canvas"></div>
-    
-   
+<div class="row">
+    <div ng-controller="MapsController" >
+        <div class="col-md-8">
+            <map center="47.238222,-1.5609655" zoom="12">
+                <div ng-repeat="localisation in localisations" >            
+                    <marker id="foo" position="{{localisation._l}}" on-click="showInfoWindow(event, 'bar')">
+                    </marker>        
+                </div>
+            </map>
+        </div>
+        <div class="col-md-4">
+            <h2> Infos </h2>
+        </div>
+    </div>
+</div>
+
+

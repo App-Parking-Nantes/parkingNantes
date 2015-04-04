@@ -1,7 +1,7 @@
 /*
  * Controller HomeController
  */
-app.controller('MapsController', ['$scope', '$http', '$location', '$rootScope', '$q', function ($scope, $http, $location, $rootScope, $q) {
+app.controller('MapsController', ['$scope', '$http', '$location', '$rootScope', '$q',function ($scope, $http, $location, $rootScope, $q) {
 
         $scope.parkings = [];
         $scope.horaires = [];
@@ -68,8 +68,8 @@ app.controller('MapsController', ['$scope', '$http', '$location', '$rootScope', 
                 alert(msg);
             });
         };
-        
-        
+
+
         $scope.dataLocalisation = function () {
             //On récupère les données
             var deferred = $q.defer();
@@ -95,6 +95,5 @@ app.controller('MapsController', ['$scope', '$http', '$location', '$rootScope', 
         $scope.dataParkings();
         $scope.dataHoraire();
         $scope.dataLocalisation();
-        initialize();
 
     }]);

@@ -69,15 +69,15 @@
                         ];
 
 // Loop through our array of markers & place each one on the map  
-                        for (i = 0; i < markers.length; i++) {
-                            var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
-                            bounds.extend(position);
-                            marker = new google.maps.Marker({
-                                position: position,
-                                map: map,
-                                title: markers[i][0]
-                            });
-                        }
+//                        for (i = 0; i < markers.length; i++) {
+//                            var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+//                            bounds.extend(position);
+//                            marker = new google.maps.Marker({
+//                                position: position,
+//                                map: map,
+//                                title: markers[i][0]
+//                            });
+//                        }
 
                         var map = new google.maps.Map(document.getElementById('map-canvas'),
                                 mapOptions), marker, i;

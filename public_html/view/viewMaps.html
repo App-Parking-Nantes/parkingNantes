@@ -50,26 +50,38 @@
 
  <div>{{}}</div>-->
 
-<!DOCTYPE html>
-<html>
-  <head>
-      <div class="col-md-6">
-        <title>Asynchronous Loading</title>
-        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-        <meta charset="utf-8">
-        <style>
-          html, body, #map-canvas {
-            height: 100%;
-            width: 100%;
-          }
-        </style>
-      </div>
-  </head>
-    <div id="map-canvas"></div>
-    
-    <div class="col-md-6">
-        <h4> Informations </h4>
+<div class="row">
+    <div ng-controller="MapsController" >
+        <div class="col-md-8">
+            
+            <!--http://plnkr.co/edit/eEE9tX4PlDstCeiQI6x2?p=preview -->
+            <map zoom="12" center="[47.238222,-1.5609655]">
+            <marker ng-repeat="p in localisations" position="{{p._l}}" on-click="showInfoWindow(event, p)"></marker>
+
+             </map>
+            
+            
+        </div>
+        <div class="col-md-4">
+            <h2> Infos </h2>
+            <hr>
+            <h4> Places Disponible </h4>
+
+            {{infos.parking.Grp_disponible}}
 
 
+            <h4> Horaire </h4>
+
+            <ul ng-repeat="horaire in infos.horaire">
+                <li>{{horaire.JOUR}} -  {{horaire.HEURE_DEBUT}} | {{horaire.HEURE_FIN}} </li>
+
+            </ul>
+
+            <h4> Localisation </h4>
+
+            {{infos.localisation._l}}
+        </div>
     </div>
-</html>
+</div>
+
+

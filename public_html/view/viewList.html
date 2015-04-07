@@ -1,45 +1,46 @@
 <h2>Parkings List</h2>
 <div ng-controller="ListController">
     <div class="row">
-            <div class="col-md-6">
-                <form class="form-inline">
-                    <div class="form-group">
-                        <label>Filtrer par Nom </label>
-                        <input type="text" ng-model="searchValue" placeholder="Recherche" class="form-control"> 
-                    </div>
-                </form>
-                <hr>
-                <div id="searchResults">
-                    <ul>
-                        <li ng-repeat="parking in parkings| filter: searchValue">
-                            <div style="display: none ;" ng-init="param = parking.IdObj;"></div>
-                            <a ng-click="singleInformation(param)">
-                                {{parking.Grp_nom}}</a>
-                        </li>
-                    </ul>
+        <div class="col-md-6">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label>Filtrer par Nom </label>
+                    <input type="text" ng-model="searchValue" placeholder="Recherche" class="form-control"> 
                 </div>
-            </div>
-
-            <div class="col-md-6">
-                <h4> Informations </h4>
-
-                <hr>
-                <h4> Places Disponible </h4>
-
-                {{infos.parking.Grp_disponible}}
-
-
-                <h4> Horaire </h4>
-
-                <ul ng-repeat="horaire in infos.horaire">
-                    <li>{{horaire.JOUR}} -  {{horaire.HEURE_DEBUT}} | {{horaire.HEURE_FIN}} </li>
-
+            </form>
+            <hr>
+            <div id="searchResults">
+                <ul>
+                    <li ng-repeat="parking in parkings| filter: searchValue">
+                        <div style="display: none ;" ng-init="param = parking.IdObj;"></div>
+                        <a ng-click="singleInformation(param)">
+                            {{parking.Grp_nom}}</a>
+                    </li>
                 </ul>
-
-                <h4> Localisation </h4>
-
-                {{infos.localisation._l}}
-
             </div>
+        </div>
+
+        <div class="col-md-6">
+            <h4> Informations </h4>
+
+            <hr>
+            <h4> Places Disponible </h4>
+
+            {{infos.parking.Grp_disponible}}
+
+
+            <h4> Horaire </h4>
+
+            <ul ng-repeat="horaire in infos.horaire">
+                <li>{{horaire.JOUR}} -  {{horaire.HEURE_DEBUT}} | {{horaire.HEURE_FIN}} </li>
+
+            </ul>
+
+            <h4> Localisation </h4>
+
+            {{infos.localisation._l}}
+
+        </div>
     </div>
 </div>
+

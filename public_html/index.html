@@ -12,11 +12,16 @@
         <link href="WebRoot/css/bootstrap.css" rel="stylesheet">
         <link href="WebRoot/css/style.css" rel="stylesheet">
         <link href="WebRoot/css/styleList.css" rel="stylesheet">
+        <link href="WebRoot/css/styleMaps.css" rel="stylesheet">
         <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
         <!-- Inclusion Angular -->
         <script src="WebRoot/angular/angular.js"></script>
         <script src="WebRoot/angular/angular-route.js"></script>
+        
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=weather,visualization,panoramio"></script>        
+        <script src="https://rawgit.com/allenhwkim/angularjs-google-maps/master/build/scripts/ng-map.js"></script>
+        
     </head>
     <body>
         <div class="site-container">
@@ -26,16 +31,12 @@
                     <a href="#maps" class="header__logo">Bard - Check your parking</a>
                     <nav class="menu">
                         <a href="#maps">Maps</a>
-                        <a href="#list">Liste</a>                      
-
-
+                        <a href="#list">Liste</a>
                     </nav>
                 </header>
 
                 <div class="site-content">
-                    <div class="site-content-container">                   
-
-
+                    <div class="site-content-container">
                         <div class="container">
                             <div class="starter-template">
                                 <div ng-view></div>
@@ -43,59 +44,13 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Inclusion JS -->
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-                <script src="WebRoot/js/bootstrap.js"></script>
-                <script src="js/app.js"></script>
-                <script src="js/controller/MapsController.js"></script>
-                <script src="js/controller/ListController.js"></script>
-                <script>
-                    function initialize() {
-
-
-
-                        var mapOptions = {
-                            zoom: 15,
-                            center: new google.maps.LatLng(44.3381, 1.2098)
-
-                        };
-
-                        // Tableau des parkings
-
-                        var markers = [
-                            ['London Eye, London', 44.3382, 1.2098],
-                            ['Palace of Westminster, London', 44.3382, 1.2097]
-                        ];
-
-// Loop through our array of markers & place each one on the map  
-//                        for (i = 0; i < markers.length; i++) {
-//                            var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
-//                            bounds.extend(position);
-//                            marker = new google.maps.Marker({
-//                                position: position,
-//                                map: map,
-//                                title: markers[i][0]
-//                            });
-//                        }
-
-                        var map = new google.maps.Map(document.getElementById('map-canvas'),
-                                mapOptions), marker, i;
-
-                    }
-
-                    function loadScript() {
-                        var script = document.createElement('script');
-                        script.type = 'text/javascript';
-                        script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAZm1G4_JsdsOTB6zFRtutA7TpHpj8qAuA' +
-                                '&signed_in=true&callback=initialize';
-                        document.body.appendChild(script);
-                    }
-
-                    window.onload = loadScript;
-
-                </script>
-
-
-                </body>
-                </html>
+            </div>
+        </div>
+        <!-- Inclusion JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="WebRoot/js/bootstrap.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/controller/MapsController.js"></script>
+        <script src="js/controller/ListController.js"></script>   
+    </body>
+</html>

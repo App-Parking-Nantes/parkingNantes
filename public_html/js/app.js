@@ -11,7 +11,11 @@ app.config(['$routeProvider','$httpProvider',function ($routeProvider,$httpProvi
     }).when('/list',{
         templateUrl :'view/viewList.html',
         controller :'ListController'
-    })       
+    })
+    .when('/parking/:id',{
+        templateUrl :'view/viewParking.html',
+        controller :'ListController'
+    })
     .otherwise({redirectTo : '/maps'});
     
     

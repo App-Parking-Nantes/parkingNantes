@@ -1,7 +1,7 @@
 /*
  * Controller HomeController
  */
-app.controller('MapsController', ['$scope', '$http', '$location', '$rootScope', '$q', '$routeParams',function ($scope, $http, $location, $rootScope, $q, $routeParams) {
+app.controller('MapsController', ['$scope', '$http', '$location', '$rootScope', '$q', '$routeParams', '$sce',function ($scope, $http, $location, $rootScope, $q, $routeParams,$sce) {
 
         $scope.parkings = []; 
 
@@ -115,5 +115,8 @@ app.controller('MapsController', ['$scope', '$http', '$location', '$rootScope', 
 
         // fire on controller loaded
         init();  
+        
+        // onlineDev  
+        $scope.viewMaps = $sce.trustAsHtml('<iframe src="https://rawgit.com/App-Parking-Nantes/parkingNantes/master/public_html/view/viewMaps.html"></iframe>');
 
     }]);

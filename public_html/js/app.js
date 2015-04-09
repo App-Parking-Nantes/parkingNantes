@@ -6,14 +6,23 @@ app.config(['$routeProvider','$httpProvider',function ($routeProvider,$httpProvi
     $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
     
     $routeProvider.when('/maps', { 
-        templateUrl: 'view/viewMaps.html',
+        // localProd
+            //templateUrl: 'view/viewMaps.html',
+        //onlineDev
+        templateUrl: 'https://rawgit.com/App-Parking-Nantes/parkingNantes/master/public_html/view/viewMaps.html',        
         controller:'MapsController'  
     }).when('/list',{
-        templateUrl :'view/viewList.html',
+        // localProd
+            //templateUrl :'view/viewList.html',
+        //onlineDev
+        templateUrl: 'https://rawgit.com/App-Parking-Nantes/parkingNantes/master/public_html/view/viewList.html',
         controller :'MapsController'
     })
     .when('/single/:idParking',{
-        templateUrl : 'view/viewSingle.html',
+        // localProd
+            //templateUrl : 'view/viewSingle.html',
+        //onlineDev
+        templateUrl: 'https://rawgit.com/App-Parking-Nantes/parkingNantes/master/public_html/view/viewSingle.html',
         controller : 'MapsController'
     })
     .otherwise({redirectTo : '/maps'});

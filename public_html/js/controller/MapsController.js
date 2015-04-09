@@ -99,9 +99,10 @@ app.controller('MapsController', ['$scope', '$http', '$location', '$rootScope', 
         
         //Main
         var init = function () {
-            console.log($routeParams.idParking);
+           
             
-            if(typeof $routeParams.idParking !== 'undefined') {                
+            if(typeof $routeParams.idParking !== 'undefined') { 
+                 console.log($routeParams.idParking);
                 $scope.data().then(function() {
                     $scope.one($routeParams.idParking);
                 }, function(reason) {

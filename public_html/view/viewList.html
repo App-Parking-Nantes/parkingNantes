@@ -13,7 +13,7 @@
                 <ul>
                     <li ng-repeat="parking in parkings| filter: searchValue">
                         <div style="display: none ;" ng-init="param = parking.IdObj;"></div>
-                        <a ng-click="singleInformation(param)">
+                        <a ng-click="singleInformation(param)" href="#single{{parking.IdObj}}">
                             {{parking.Grp_nom}}</a>
                     </li>
                 </ul>

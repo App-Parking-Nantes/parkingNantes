@@ -16,6 +16,11 @@ app.config(['$routeProvider','$httpProvider',function ($routeProvider,$httpProvi
         templateUrl :'view/viewParking.html',
         controller :'ListController'
     })
+    .when('/single:id',{
+        templateUrl : 'view/viewSingle.html',
+        controller : 'SingeController'
+    })       
+
     .otherwise({redirectTo : '/maps'});
     
     

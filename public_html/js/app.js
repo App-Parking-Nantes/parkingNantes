@@ -13,7 +13,7 @@ app.config(['$routeProvider','$httpProvider',function ($routeProvider,$httpProvi
         controller :'ListController'
     }).when('/single:id',{
         templateUrl : 'view/viewSingle.html',
-        controller : 'SingeController'
+        controller : 'SingleController'
     })       
     .otherwise({redirectTo : '/maps'});
     

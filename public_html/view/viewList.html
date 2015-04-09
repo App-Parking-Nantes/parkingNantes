@@ -1,5 +1,5 @@
 <h2>Parkings List</h2>
-<div ng-controller="ListController">
+<div ng-controller="MapsController">
     <div class="row">
         <div class="col-md-6">
             <form class="form-inline">
@@ -13,34 +13,11 @@
                 <ul>
                     <li ng-repeat="parking in parkings| filter: searchValue">
                         <div style="display: none ;" ng-init="param = parking.IdObj;"></div>
-                        <a ng-click="singleInformation(param)" href="#single{{parking.IdObj}}">
+                        <a ng-click="one(param)" href="#single/{{parking.IdObj}}">
                             {{parking.Grp_nom}}</a>
                     </li>
                 </ul>
             </div>
-        </div>
-
-        <div class="col-md-6">
-            <h4> Informations </h4>
-
-            <hr>
-            <h4> Places Disponible </h4>
-
-            {{infos.parking.Grp_disponible}}
-
-
-            <h4> Horaire </h4>
-
-            <ul ng-repeat="horaire in infos.horaire">
-                <li>{{horaire.JOUR}} -  {{horaire.HEURE_DEBUT}} | {{horaire.HEURE_FIN}} </li>
-
-            </ul>
-
-            <h4> Localisation </h4>
-
-            {{infos.localisation._l}}
-
-        </div>
-    </div>
+        </div>        
 </div>
 

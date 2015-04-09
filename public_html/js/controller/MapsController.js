@@ -1,7 +1,7 @@
 /*
  * Controller HomeController
  */
-app.controller('MapsController', ['$scope', '$http', '$location', '$rootScope', '$q',function ($scope, $http, $location, $rootScope, $q) {
+app.controller('MapsController', ['$scope', '$http', '$location', '$rootScope', '$q', '$routeParams',function ($scope, $http, $location, $rootScope, $q, $routeParams) {
 
         $scope.parkings = []; 
 
@@ -22,7 +22,10 @@ app.controller('MapsController', ['$scope', '$http', '$location', '$rootScope', 
         
         
         
-        $scope.data = function(){           
+        $scope.data = function(){ 
+            
+            var deferred = $q.defer();
+            
             var promise0 = $http({method: 'GET', url: 'http://baptistedixneuf.fr/parking/parkings.php', cache: 'true'});
             var promise1 = $http({method: 'GET', url: 'http://baptistedixneuf.fr/parking/localisation.php', cache: 'true'});
             var promise2 = $http({method: 'GET', url: 'http://baptistedixneuf.fr/parking/horaireParkings.php', cache: 'true'});
@@ -54,8 +57,14 @@ app.controller('MapsController', ['$scope', '$http', '$location', '$rootScope', 
                     });
                 });
                 
+                deferred.resolve($scope.parkings);
 
-            });
+            }), function(reason) {
+                alert('Failed: ' + reason);
+                deferred.reject('Errreur chargement données ');
+            };
+            
+            return deferred.promise;
         };
         
         
@@ -65,7 +74,8 @@ app.controller('MapsController', ['$scope', '$http', '$location', '$rootScope', 
                 if(parking.IdObj==idParking){                                                     
                     $scope.infos = $scope.parkings[key];  
                 }
-            }); 
+            });
+            console.log($scope.infos);
         };
         
                           
@@ -88,7 +98,21 @@ app.controller('MapsController', ['$scope', '$http', '$location', '$rootScope', 
         
         
         //Main
-        $scope.data();   
-         
+        var init = function () {
+            console.log($routeParams.idParking);
+            
+            if(typeof $routeParams.idParking !== 'undefined') {                
+                $scope.data().then(function() {
+                    $scope.one($routeParams.idParking);
+                }, function(reason) {
+                  alert('Failed: ' + reason);
+                });
+            }else{
+                $scope.data();  
+            }
+        };
+
+        // fire on controller loaded
+        init();  
 
     }]);

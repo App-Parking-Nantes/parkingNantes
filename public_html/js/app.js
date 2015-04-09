@@ -10,17 +10,12 @@ app.config(['$routeProvider','$httpProvider',function ($routeProvider,$httpProvi
         controller:'MapsController'  
     }).when('/list',{
         templateUrl :'view/viewList.html',
-        controller :'ListController'
+        controller :'MapsController'
     })
-    .when('/parking/:id',{
-        templateUrl :'view/viewParking.html',
-        controller :'ListController'
-    })
-    .when('/single:id',{
+    .when('/single/:idParking',{
         templateUrl : 'view/viewSingle.html',
-        controller : 'SingleController'
-    })       
-
+        controller : 'MapsController'
+    })
     .otherwise({redirectTo : '/maps'});
     
     

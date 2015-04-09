@@ -124,11 +124,29 @@ app.controller('MapsController', ['$scope', '$http', '$location', '$rootScope', 
         };
         
         
+        $scope.jointureParkingLocalisation = function(){
+             console.log("parking");
+            angular.forEach($scope.parkings, function(parking) {
+                console.log(parking);
+                angular.forEach($scope.localisations, function(localisation) {
+                     console.log(localisation);
+                    if(parking.IdObj==localisation._IDOBJ){
+                        
+                        $scope.parkings.localisation= [];
+                        $scope.parkings.localisation.push(localisation);
+                    }
+                });
+            });
+        };
+       
+        
+        
 
 
         $scope.dataParkings();
         $scope.dataHoraire();
         $scope.dataLocalisation();
+        $scope.jointureParkingLocalisation();
         
         
      

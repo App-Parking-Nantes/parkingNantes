@@ -114,9 +114,7 @@ app.controller('MapsController', ['$scope', '$http', '$location', '$rootScope', 
         };
 
         // fire on controller loaded
-        init();  
-        
-        // onlineDev  
-        $scope.viewMaps = $sce.trustAsHtml('<iframe src="https://raw.githubusercontent.com/App-Parking-Nantes/parkingNantes/master/public_html/view/viewMaps.html"></iframe>');
+        init();          
+       
 
     }]);

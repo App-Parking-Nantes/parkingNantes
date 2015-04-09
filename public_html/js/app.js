@@ -1,32 +1,22 @@
 //Déclaration de notre application AngularJS avec les modules nécessaires
-var app = angular.module('ParkingNantes', ['ngRoute','ngMap']);
+var app = angular.module('ParkingNantes', ['ngRoute','ngMap','ngSanitize']);
 
 /* Configuration des routes*/
-app.config(['$routeProvider','$httpProvider', '$sce',function ($routeProvider,$httpProvider,$sce) {
+app.config(['$routeProvider','$httpProvider',function ($routeProvider,$httpProvider) {
     $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
     
     $routeProvider.when('/maps', { 
-        // localProd
-            //templateUrl: 'view/viewMaps.html',
-        //onlineDev
-        templateUrl: $sce.resourceUrlWhitelist('https://rawgit.com/App-Parking-Nantes/parkingNantes/master/public_html/view/viewMaps.html'),        
+        templateUrl: 'view/viewMaps.html',
         controller:'MapsController'  
     }).when('/list',{
-        // localProd
-            //templateUrl :'view/viewList.html',
-        //onlineDev
-        templateUrl: $sce.resourceUrlWhitelist('https://rawgit.com/App-Parking-Nantes/parkingNantes/master/public_html/view/viewList.html'),
+        templateUrl :'view/viewList.html',
         controller :'MapsController'
     })
     .when('/single/:idParking',{
-        // localProd
-            //templateUrl : 'view/viewSingle.html',
-        //onlineDev
-        templateUrl: $sce.resourceUrlWhitelist('https://rawgit.com/App-Parking-Nantes/parkingNantes/master/public_html/view/viewSingle.html'),
+        templateUrl : 'view/viewSingle.html',
         controller : 'MapsController'
     })
-    .otherwise({redirectTo : '/maps'});
-    
+    .otherwise({redirectTo : '/maps'});   
     
 }]);
 

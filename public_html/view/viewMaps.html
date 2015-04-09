@@ -1,63 +1,7 @@
-<!--<h1>Page Home</h1>
-
-<h2>Parkings Maps</h2>
-<div ng-repeat="parking in parkings" >    
-        <p>{{parking.Grp_identifiant}}-
-        {{parking.Grp_nom}}-
-        {{parking.Grp_statut}}-
-        {{parking.Grp_pri_aut}}-
-        {{parking.Grp_disponible}}-
-        {{parking.Grp_complet}}-
-        {{parking.Grp_exploitation}}-
-        {{parking.Grp_horodatage}}-
-        {{parking.IdObj}}
-        </p>
-</div>
-
-<h2>Horaires</h2>
-<div ng-repeat="horaire in horaires" >    
-        <p>{{horaire.LIBELLE_PERIODE}}-
-        {{horaire.NOM_COMPLET}}-
-        {{horaire.HEURE_DEBUT}}-
-        {{horaire.JOUR}}-
-        {{horaire.DATE_FIN}}-
-        {{horaire.DATE_DEBUT}}-
-        {{horaire._IDOBJ}}-
-        {{horaire.HEURE_FIN}}        
-        </p>
-</div>
-
-<h2>Localisations</h2>
-<div ng-repeat="localisation in localisations" >    
-        <p>{{localisation.geo}}-
-        {{localisation._l}}-
-        {{localisation.LIBTHEME}}-
-        {{localisation.CODE_POSTAL}}-
-        {{localisation.WEB}}-
-        {{localisation.STATUT}}-
-        {{localisation.TELEPHONE}}-
-        {{localisation.THEME}}-
-        {{localisation.COMMUNE}}- 
-        {{localisation.LIBCATEGORIE}}-
-        {{localisation.ADRESSE}}- 
-        {{localisation.LIBTYPE}}- 
-        {{localisation._IDOBJ}}-
-        {{localisation.TYPE}}- 
-        {{localisation.CATEGORIE}}
-        </p>
-</div>
-
-
- <div>{{}}</div>-->
-
 <div class="row">
     <div ng-controller="MapsController" >
         <div class="col-md-8">
         
-           <!--{{parkings}}-->
-           
-           
-            <!--http://plnkr.co/edit/eEE9tX4PlDstCeiQI6x2?p=preview -->
             <map zoom="14" center="[47.2143324211276,-1.54898882844897]"> 
                 
                 <marker ng-repeat="p in parkings" position="{{p.localisation._l}}" on-click="showInfoWindow(event, p)">                    

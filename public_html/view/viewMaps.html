@@ -53,7 +53,10 @@
 <div class="row">
     <div ng-controller="MapsController" >
         <div class="col-md-8">
-           {{parkings}}
+           <!--{{parkings}}-->
+           
+           {{p.localisation._l}} <!--Vide car undefined dans le controleur-->
+           
             <!--http://plnkr.co/edit/eEE9tX4PlDstCeiQI6x2?p=preview -->
             <map zoom="12" center="[47.238222,-1.5609655]">   
                 

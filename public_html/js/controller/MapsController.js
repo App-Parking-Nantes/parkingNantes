@@ -124,28 +124,62 @@ app.controller('MapsController', ['$scope', '$http', '$location', '$rootScope', 
         };
         
         
-        $scope.jointureParkingLocalisation = function(){
-             console.log("parking");
-            angular.forEach($scope.parkings, function(parking) {
-                console.log(parking);
-                angular.forEach($scope.localisations, function(localisation) {
-                     console.log(localisation);
+       $scope.jointureParkingLocalisation = function(){
+           
+           
+                    
+                    
+        var promise1 = $http({method: 'GET', url: 'http://baptistedixneuf.fr/parking/parkings.php', cache: 'true'});
+        var promise2 = $http({method: 'GET', url: 'http://baptistedixneuf.fr/parking/localisation.php', cache: 'true'});
+
+        $q.all([promise1, promise2]).then(function(data){
+            console.log(data[0], data[1]);
+        
+            dataParkings= data[0].data.opendata.answer.data.Groupes_Parking.Groupe_Parking;
+            dataLocalisations = data[1].data.data;
+        
+            angular.forEach(dataParkings, function(parking,key) {
+                console.log("boucle parking: "+ parking);
+                angular.forEach(dataLocalisations, function(localisation) {
+                    console.log("localisation"+localisation._l);
                     if(parking.IdObj==localisation._IDOBJ){
+                        console.log("find");
+                        $scope.parkings[key].localisation= [];
+                        $scope.parkings[key].localisation.push(localisation);
+                        console.log(key+":"+$scope.parkings[key].localisation._l);
                         
-                        $scope.parkings.localisation= [];
-                        $scope.parkings.localisation.push(localisation);
                     }
                 });
             });
+        
+        });
+            
+            
+            
+            
+            
+           
+          
+        
+        
+           
+          
+           
+           
+           
+           
+           
         };
        
-        
         
 
 
         $scope.dataParkings();
         $scope.dataHoraire();
         $scope.dataLocalisation();
+        
+        
+        
         $scope.jointureParkingLocalisation();
         
         

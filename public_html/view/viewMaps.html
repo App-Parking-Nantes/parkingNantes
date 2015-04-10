@@ -4,7 +4,16 @@
         
             <map zoom="14" center="[47.2143324211276,-1.54898882844897]"> 
                 
-                <marker ng-repeat="p in parkings" position="{{p.localisation._l}}" on-click="showInfoWindow(event, p)">                    
+                <marker ng-repeat="p in parkings" position="{{p.localisation._l}}" on-click="showInfoWindow(event, 'marker-info')">
+                    <info-window id="marker-info">
+                        <div id="bodyContent">
+                            <h4>{{p.Grp_nom}}</h4>
+                            <ul>
+
+                                <li> Place disponible : {{p.Grp_disponible}}</li>
+                            </ul>
+                        </div>
+                  </info-window>
                 </marker>
 
              </map>

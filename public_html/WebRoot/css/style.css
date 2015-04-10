@@ -176,7 +176,7 @@ a {
 
 
 // VUE LIST
-/*#oneItem{
+#oneItem{
     padding : 16px ;
 }
 #places{
@@ -188,7 +188,5 @@ a {
         background: #f2f2f2 !important;
 }
 #oneItem p{
-    line-height: 2px ;
-    font-weight: bold ;*/
-//}
+    font-weight: bold ;}
 

@@ -33,12 +33,12 @@ a {
     float: left;
 }
 .header__logo:hover{
-   color :#fff ;
-   text-decoration : none ;
+    color :#fff ;
+    text-decoration : none ;
 }
 .menu {
     float: left;
-  
+
 }
 .menu a {
     padding: 0 10px;
@@ -131,4 +131,35 @@ a {
     right: 0;
     bottom: 0;
     /*background-color: rgba(0, 0, 0, 0.6);*/
+}
+
+#iconmap{
+    vertical-align: middle; 
+    position: relative; 
+    left: -75px;
+    color: #337ab7;
+    text-decoration: none;
+    width:32px;
+    background-image: url('LibraryTransparent.png');
+}
+#iconmap:hover,
+#iconmap:focus {
+   background-image: url('LibraryHoverTrans.png');
+   color: #23527c;
+   text-decoration: underline;
+}
+#iconlist{
+    vertical-align: middle; 
+    position: relative; 
+    left: -75px;
+    color: #337ab7;
+    text-decoration: none;
+    width:32px;
+    background-image: url('LibraryTransparent.png');
+   }
+#iconmap:hover,
+#iconmap:focus {
+   background-image: url('LibraryHoverTrans.png');
+   color: #23527c;
+   text-decoration: underline;
 }

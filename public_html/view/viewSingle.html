@@ -1,7 +1,7 @@
 <h2>Parkings Infos</h2>
 <div ng-controller="MapsController">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <h4> Informations </h4>
 
             <hr>
@@ -14,16 +14,16 @@
 
             <ul ng-repeat="horaire in infos.horairesArray">
                 <li>{{horaire.JOUR}} -  {{horaire.HEURE_DEBUT}} | {{horaire.HEURE_FIN}} </li>
-
             </ul>
 
-            <h4> Localisation </h4>
-
-            {{infos.localisation._l}}
+            <h4> Localisation </h4>           
+            <map zoom="14" center="[47.2143324211276,-1.54898882844897]">                 
+                <marker position="{{infos.localisation._l[0]}},{{infos.localisation._l[1]}}"></marker> 
+             </map>
 
         </div>
         
     </div>
-</div>
+</div> 
 
 

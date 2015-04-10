@@ -88,10 +88,12 @@ app.controller('MapsController', ['$scope', '$http', '$location', '$rootScope', 
             var infowindow = new google.maps.InfoWindow();           
             var center = new google.maps.LatLng(p.localisation._l[0],p.localisation._l[1]);
             $scope.one(p.IdObj);
-
+            console.log(p) ;
             infowindow.setContent(
-                '<h3>' + p.localisation._l + '</h3>');
-
+                '<h4>' + p.Grp_nom + '</h4>'
+                +'<ul>'
+                +'<li> Place disponible : '+ p.Grp_disponible+'</li>'
+                +'</ul>');
             infowindow.setPosition(center);
             infowindow.open($scope.objMapa);
         };

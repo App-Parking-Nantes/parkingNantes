@@ -1,3 +1,5 @@
+//http://ngmap.github.io/
+
 var ngMap = angular.module('ngMap', []);
 
 /**

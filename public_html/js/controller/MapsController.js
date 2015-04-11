@@ -26,9 +26,9 @@ app.controller('MapsController', ['$scope', '$http', '$location', '$rootScope', 
             
             var deferred = $q.defer();
             
-            var promise0 = $http({method: 'GET', url: 'http://baptistedixneuf.fr/parking/parkings.php', cache: 'true'});
-            var promise1 = $http({method: 'GET', url: 'http://baptistedixneuf.fr/parking/localisation.php', cache: 'true'});
-            var promise2 = $http({method: 'GET', url: 'http://baptistedixneuf.fr/parking/horaireParkings.php', cache: 'true'});
+            var promise0 = $http({method: 'GET', url: 'http://bard-nantes.fr/php/parkings.php', cache: 'true'});
+            var promise1 = $http({method: 'GET', url: 'http://bard-nantes.fr/php/localisation.php', cache: 'true'});
+            var promise2 = $http({method: 'GET', url: 'http://bard-nantes.fr/php/horaireParkings.php', cache: 'true'});
 
             $q.all([promise0, promise1, promise2]).then(function(data){
                // console.log(data[0], data[1], data[2]);
@@ -40,8 +40,7 @@ app.controller('MapsController', ['$scope', '$http', '$location', '$rootScope', 
                 //Jointure Parking <=> Localisation
                 angular.forEach($scope.parkings, function(parking,key) {                    
                     angular.forEach(localisations, function(localisation) {                       
-                        if(parking.IdObj==localisation._IDOBJ){
-                            // console.log("find");                            
+                        if(parking.IdObj==localisation._IDOBJ){                                                
                             $scope.parkings[key].localisation=localisation;
                         }
                     });
@@ -74,8 +73,7 @@ app.controller('MapsController', ['$scope', '$http', '$location', '$rootScope', 
                 if(parking.IdObj==idParking){                                                     
                     $scope.infos = $scope.parkings[key];  
                 }
-            });
-            console.log($scope.infos);
+            });            
         };
         
                           
@@ -91,8 +89,7 @@ app.controller('MapsController', ['$scope', '$http', '$location', '$rootScope', 
         var init = function () {
            
             
-            if(typeof $routeParams.idParking !== 'undefined') { 
-                 console.log($routeParams.idParking);
+            if(typeof $routeParams.idParking !== 'undefined') {                
                 $scope.data().then(function() {
                     $scope.one($routeParams.idParking);
                 }, function(reason) {

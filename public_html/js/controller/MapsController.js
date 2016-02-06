@@ -26,9 +26,9 @@ app.controller('MapsController', ['$scope', '$http', '$location', '$rootScope', 
             
             var deferred = $q.defer();
             
-            var promise0 = $http({method: 'GET', url: 'http://bard-nantes.fr/php/parkings.php', cache: 'true'});
-            var promise1 = $http({method: 'GET', url: 'http://bard-nantes.fr/php/localisation.php', cache: 'true'});
-            var promise2 = $http({method: 'GET', url: 'http://bard-nantes.fr/php/horaireParkings.php', cache: 'true'});
+            var promise0 = $http({method: 'GET', url: '//bard-nantes.fr/php/parkings.php', cache: 'true'});
+            var promise1 = $http({method: 'GET', url: '//bard-nantes.fr/php/localisation.php', cache: 'true'});
+            var promise2 = $http({method: 'GET', url: '//bard-nantes.fr/php/horaireParkings.php', cache: 'true'});
 
             $q.all([promise0, promise1, promise2]).then(function(data){
                // console.log(data[0], data[1], data[2]);
